@@ -3,7 +3,7 @@ import requests as req
 
 class HttpResquester:
     def __init__(self) -> None:
-        self.__url = 'http://web.archive.org/web/20200329014303/https://www.nga.gov/collection/artists.html'
+        self.__url = 'https://web.archive.org/web/20121007172955/https://www.nga.gov/collection/anZ1.htm'
 
     def request_from_page(self) -> Dict[int, str]:
         res = req.get(self.__url, timeout=5)
