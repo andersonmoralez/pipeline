@@ -13,3 +13,12 @@
             "--rcfile=.pylintrc",
             "--load-plugins=pylint.extensions.docparams",
           ]
+
+  - repo: local
+    hooks:
+      - id: requirements
+        name: requirements
+        entry: cmd.exe /c "myvenv\Scripts\pip3 freeze > requirements.txt; git add requirements.txt"
+        language: system
+        pass_filenames: false
+        stages: [commit]
