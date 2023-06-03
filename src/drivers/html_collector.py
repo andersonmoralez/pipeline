@@ -19,4 +19,4 @@ class HtmlCollector(HtmlCollectorInterface):
                 "name": names,
                 "link": links
             })
-        return ressential_information
+        return essential_information
