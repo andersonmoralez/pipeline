@@ -5,7 +5,6 @@ disable=
       C0115, #Missing-class-docstring
       C0116, #Missing-function-docstring
       E0015,
-      C0301, #line-too-long
       W0221, #arguments-differ
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
