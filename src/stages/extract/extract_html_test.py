@@ -1,24 +1,24 @@
-from src.drivers.http_requester import HttpResquester
-from src.drivers.html_collector import HtmlCollector
+from src.drivers.tests.http_requester import HttpResquesterSpy
+from src.drivers.tests.html_collector import HtmlCollectorSpy
 from src.stages.contracts.extract_contract import ExtractContract
 from src.errors.extract_error import ExtractError
 from .extract_html import ExtractHtml
 
 def test_extract():
-    http_requester = HttpResquester()
-    html_collector = HtmlCollector()
+    http_requester = HttpResquesterSpy()
+    html_collector = HtmlCollectorSpy()
 
     extract_html = ExtractHtml(http_requester, html_collector)
 
     res = extract_html.extract()
-    print()
-    print(res)
 
     assert isinstance(res, ExtractContract)
+    assert http_requester.request_from_page_count == 1
+    assert 'html' in html_collector.collect_essential_information_attributes
 
 def test_extract_error():
     http_requester = 'GerarErro'
-    html_collector = HtmlCollector()
+    html_collector = HtmlCollectorSpy()
 
     extract_html = ExtractHtml(http_requester, html_collector)
 
